@@ -1,0 +1,36 @@
+<!--<button>Save</button>
+
+<button class="btn btn-sucesss mb-2">Submit</button>
+<button class="btn btn-primary mb-2">Submit2</button>
+<button class="btn btn-danger">Cancel</button>
+
+<i class="fa fa-edit"></i>
+<i class="fa fa-trash-o"></i>
+-->
+
+// this._toastr.success("Success", "User Master");
+   // this._toastr.info("Info Success", "User Master");
+   // this._toastr.warning("Warning", "User Master");
+   // this._toastr.error("Error", "User Master");
+
+   //Swal.fire('Hello World!')
+   // Swal.fire('Oops....', 'Something went wrong!', 'error')
+   // Swal.fire('Wow....', 'Good', 'success');
+   
+   Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
