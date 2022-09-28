@@ -1,9 +1,72 @@
-<!--<button>Save</button>
+<div class="card">
+    <h5 class="card-header card-header-color">User Registration</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)=" onSubmit()">
+            <div class="row mb-3">
+                <div class="from-group col">
+                    <label>Title</label>
+                    <select class="form-control" formControlName="Title">
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
 
-<button class="btn btn-sucesss mb-2">Submit</button>
-<button class="btn btn-primary mb-2">Submit2</button>
-<button class="btn btn-danger">Cancel</button>
+                    </select>
+                </div>
+                <div class="from-group col-5">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" />
+                </div>
 
-<i class="fa fa-edit"></i>
-<i class="fa fa-trash-o"></i>
--->
+                <div class="from-group col-5">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="from-group col-5">
+                    <label>Date of Birth</label>
+                    <input type="date" class="form-control" formControlName="dob" />
+                </div>
+
+                <div class="from-group col-5">
+                    <label>Email</label>
+                    <input type="text" class="form-control" formControlName="email" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="from-group col-5">
+                    <label>Password</label>
+                    <input type="password" class="form-control" formControlName="password" />
+                </div>
+
+                <div class="from-group col-5">
+                    <label>Confirm Password</label>
+                    <input type="text" class="form-control" formControlName="confirmPassword" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="from-group col from-check">
+                    <input type="checkbox" class="from-check-input" id="acceptTerms" formControlName="acceptTerms" />
+                    <label for="acceptTerms" class="from-check-input">Accept Term & Conditions</label>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="from-group text-center">
+                    <button type="submit" class="btn btn-success me-1">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <h5 class="card-header card-header-list-color">User List</h5>
+    <div class="card-body">
+    </div>
+</div>
