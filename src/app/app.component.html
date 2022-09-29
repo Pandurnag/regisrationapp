@@ -20,28 +20,51 @@
                 <div class="from-group col-5">
                     <label>First Name</label>
                     <input type="text" class="form-control" formControlName="firstName"
-                        [ngClass]="{'is-invalid' : submitted && f['title'].errors}" />
-                    <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
-                        <div *ngIf="f['title'].errors['required']">Title is required !!</div>
+                        [ngClass]="{'is-invalid' : submitted && f['firstName'].errors}" />
+                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['firstName'].errors['required']">First Name is required !!</div>
+                        <div *ngIf="f['firstName'].errors['required']">First Name should be at least 3 char long !!
+                        </div>
+                        <div *ngIf="f['firstName'].errors['required']">First Name should be not be more then 10 char
+                            long !!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="from-group col-5">
+                <label>Last Name</label>
+                <input type="text" class="form-control" formControlName="lastName"
+                    [ngClass]="{'is-invalid' : submitted && f['lastName'].errors}" />
+                <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['lastName'].errors['required']">Last Name is required !!</div>
+                    <div *ngIf="f['lastName'].errors['required']">Last Name should be at least 3 char long !!</div>
+                    <div *ngIf="f['lastName'].errors['required']">Last Name should be not be more then 10 char long !!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="from-group col-5">
+                    <label>Date of Birth</label>
+                    <input type="text" class="form-control" formControlName="dob"
+                        [ngClass]="{'is-invalid' : submitted && f['dob'].errors}" />
+                    <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+                        <div *ngIf="f['dob'].errors['required']">Date of Birth is required !!</div>
+                        <div *ngIf="f['dob'].errors['pattern']">Date of Birth must be a valid in the format YYYY-MM-dd
+                            !!</div>
 
                     </div>
                 </div>
 
                 <div class="from-group col-5">
-                    <label>Last Name</label>
-                    <input type="text" class="form-control" formControlName="lastName" />
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="from-group col-5">
-                    <label>Date of Birth</label>
-                    <input type="date" class="form-control" formControlName="dob" />
-                </div>
-
-                <div class="from-group col-5">
                     <label>Email</label>
-                    <input type="text" class="form-control" formControlName="email" />
+                    <input type="text" class="form-control" formControlName="email"
+                        [ngClass]="{'is-invalid' : submitted && f['email'].errors}" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required !!</div>
+                        <div *ngIf="f['email'].errors['required']">Email must be valid email address !!</div>
+                    </div>
                 </div>
             </div>
 
@@ -55,23 +78,54 @@
                     <label>Confirm Password</label>
                     <input type="text" class="form-control" formControlName="confirmPassword" />
                 </div>
+                <div class="from-group col-5">
+                    <label>Password</label>
+                    <input type="password" class="form-control" formControlName="password"
+                        [ngClass]="{'is-invalid' : submitted && f['password'].errors}" />
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">Password is required !!</div>
+                        <div *ngIf="f['password'].errors['required']">Password should be at least 6 char long !!</div>
+                    </div>
+                </div>
+
+                <div class="from-group col-5">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirmpassword"
+                        [ngClass]="{'is-invalid' : submitted && f['confirmpassword'].errors}" />
+                    <div *ngIf="submitted && f['confirmpassword'].errors" class="invalid-feedback">
+                        <div *ngIf="f['confirmpassword'].errors['required']">Confirm Password is required !!</div>
+                        <div *ngIf="f['confirmpassword'].errors['mustMatch']">Password and Confirm Password must be same
+                            !!</div>
+
+                    </div>
+                </div>
             </div>
+
+
+
+
+
 
             <div class="row mb-3">
                 <div class="from-group col from-check">
                     <input type="checkbox" class="from-check-input" id="acceptTerms" formControlName="acceptTerms" />
+                    [ngClass]="{'is-invalid' : submitted && f['acceptTerms'].errors}" />
                     <label for="acceptTerms" class="from-check-input">Accept Term & Conditions</label>
-                </div>
-            </div>
+                </div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+                <div *ngIf="f['acceptTerms'].errors['required']">accept Terms & Condition is required !!</div>
 
-            <div class="row mb-3">
-                <div class="from-group text-center">
-                    <button type="submit" class="btn btn-success me-1">{{buttonText}}</button>
-                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
-                </div>
             </div>
-        </form>
     </div>
+</div>
+
+<div class="row mb-3">
+    <div class="from-group text-center">
+        <button type="submit" class="btn btn-success me-1">{{buttonText}}</button>
+        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+    </div>
+</div>
+</form>
+</div>
 </div>
 
 <div class="card">

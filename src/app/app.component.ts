@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { DBOperation } from './-helpers/db-operations';
+import { MustMatch } from './-helpers/must-match.validator';
 import { User } from './-helpers/user.interface';
 import { UserService } from './-helpers/user.service';
 
@@ -45,6 +46,8 @@ export class AppComponent implements OnInit {
     password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     confirmPassword: ['', Validators.required],
     acceptTerms: [false, Validators.required]
+    },{
+      Validators : MustMatch('password','confirmPassword')
 
   });
 
@@ -99,11 +102,15 @@ onSubmit() {
   }
 
   Edit(userId: number) {
-    this.buttonText = "update";
+    this.buttonText = "Update";
     this.dbops = DBOperation.update;
 
     let user = this.users.find((u: User) => u.id === userId);
     this.registerForm.patchValue(user);
+
+    this.registerForm.get('password').setValue('');
+    this.registerForm.get('confirmPassword').setValue('')
+    this.registerForm.get('acceptTerms').setValue(false)
 
   }
 
